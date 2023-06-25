@@ -1,11 +1,15 @@
 package com.mdemo.webservices.mdemo;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 import org.springframework.cglib.core.Local;
 import java.time.LocalDate;
 
 public class User {
     private Integer id;
+    @Size(min = 2, message = "Name should have atleast 2 characters")
     private  String name;
+    @Past(message = "Invalid Date of birth")
     private LocalDate birthDate;
 
     public Integer getId() {
